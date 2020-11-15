@@ -10,7 +10,7 @@ int main()
 
     cin.getline(a, n);
     cin.ignore();
-    int currLen = 0, maxLen = 0;
+    int currLen = 0, maxLen = 0; 
     int st = 0, ed = 0;
     int i = 0;
     while (1)
@@ -26,10 +26,12 @@ int main()
             st = i + 1;
         }
         else
+            currLen++;
 
-        currLen++;
         if (a[i] == '\0')
             break;
+            
+
         i++;
     }
     cout<<maxLen<<endl;
