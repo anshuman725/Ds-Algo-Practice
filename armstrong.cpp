@@ -15,17 +15,18 @@ int main()
         int l = n % 10;
         sum += pow(l,3);
         n=n/10;
+        
     }
-     cout << sum << endl;
+    
 
-   /* if (sum == orignal)
+   if (sum == orignal)
     {
-        cout << sum1 << endl;
+        cout << "Yes" << endl;
     }
     else
     {
         cout << "No" << endl;
-    }*/
+    }
 
     return 0;
 }

@@ -1,0 +1,4 @@
+
+        cout<<ans<<endl;
+        return;
+        
