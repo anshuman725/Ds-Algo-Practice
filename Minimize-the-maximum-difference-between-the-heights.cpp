@@ -10,6 +10,7 @@ the largest and the smallest is 8-3 = 5.
 #include <bits/stdc++.h>
 using namespace std;
 
+
 int heights(int n, int a[], int k)
 {
     sort(a, a + n);
