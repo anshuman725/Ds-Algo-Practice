@@ -1,4 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
 
-        cout << ans << endl;
-        return;
- 
+int main()
+{
+    string s;
+    cin >> s;
