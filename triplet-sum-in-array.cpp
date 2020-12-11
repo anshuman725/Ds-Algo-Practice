@@ -19,25 +19,27 @@ using namespace std;
 bool sum(int a[], int n, int s)
 {
     sort(a, a + n);
-    int l = 0;
-    int r = n - 1;
-    int mid = (l + r) / 2;
-
-    while (l <= r)
+    for(int i=0;i<n;i++)
     {
-        if (a[l] + a[mid] + a[r] > s)
+        int l=i+1;
+        int r=n-1;
+        while(l<r)
         {
-            r--;
-        }
-        else if (a[l] + a[mid] + a[r] < s)
-        {
-            l++;
-        }
-        else
-        {
-            return 1;
+            if(a[i]+a[l]+a[r]==s)
+            {
+                return 1;
+            }
+            else if(a[i]+a[l]+a[r]<s)
+            {
+                l++;
+            }
+            else{
+                r--;
+            }
         }
     }
+    
+
     return 0;
 }
 
