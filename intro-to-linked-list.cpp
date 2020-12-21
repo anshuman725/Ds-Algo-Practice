@@ -14,6 +14,37 @@ public:
     }
 };
 
+void deleteAtHead(node* &head)
+{
+    node* toDelete=head;
+    head=head->next;
+    
+    delete toDelete;
+}
+
+void deletetion(node* &head,int val)
+{
+    if(head==NULL)
+    {
+        return;
+    }
+
+    if(head->next==NULL)
+    {
+        deleteAtHead(head);
+        return;
+    }    
+    node* temp=head;
+    while(temp->next->data!=val)
+    {
+        temp=temp->next;
+    }
+    node* toDelete=temp->next;
+    temp->next=temp->next->next;
+
+    delete toDelete;
+}
+
 void insertAtHead(node* &head,int val)
 {
     node* n = new node(val);
@@ -65,6 +96,24 @@ void display(node* head)
     }
     cout << "NULL" << endl;
 }
+node* reverse(node* &head)
+{
+    node* prevptr=NULL;
+    node* currptr=head;
+    node* nextptr;
+
+    while(currptr!=NULL)
+    {
+        nextptr=currptr->next;
+        currptr->next=prevptr;
+
+        prevptr=currptr;
+        currptr=nextptr;
+
+    }
+    return prevptr;
+
+}
 
 int main()
 {
@@ -73,8 +122,12 @@ int main()
     insertAtTail(head, 2);
     insertAtTail(head, 3);
     display(head);
-    insertAtHead(head,4);
-    display(head);
-    cout<<search(head,3)<<endl;
+    //insertAtHead(head,4);
+    //display(head);
+   // cout<<search(head,3)<<endl;
+   //deletetion(head,1);
+   node* newhead=reverse(head);
+   //reverse(head);
+   display(newhead);
 
 }
