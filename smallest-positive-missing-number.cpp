@@ -1,4 +1,6 @@
 /*
+https://practice.geeksforgeeks.org/problems/smallest-positive-missing-number3051/1/?track=ppc-arrays&batchId=221
+
 Example 1:
 
 Input:
@@ -79,6 +81,7 @@ int findMissing(int a[], int n)
     }
 
     find(a2, j);
+    
 }
 
 // { Driver Code Starts.

@@ -1,4 +1,6 @@
 /*
+https://practice.geeksforgeeks.org/problems/rearrange-an-array-with-o1-extra-space3142/0/?track=ppc-arrays&batchId=221
+
 Given an array arr[] of size N where every element is in the range from 0 to n-1. Rearrange the given array so that arr[i] becomes arr[arr[i]].
 Example 1:
 
