@@ -115,18 +115,44 @@ node* reverse(node* &head)
 
 }
 
+node* reverseKnodes(node* &head,int k)
+{
+    node* prevptr=NULL;
+    node* currptr=head;
+    node* nextptr;
+    int count=0;
+    while(currptr!=NULL && count<k)
+    {
+        nextptr=currptr->next;
+        currptr->next=prevptr;
+        prevptr=currptr;
+        currptr=nextptr;
+        count++;
+
+    }
+    if(nextptr!=NULL)
+    {
+        head->next =reverseKnodes(nextptr,k);
+    }
+    return prevptr;
+
+}
+
 int main()
 {
     node* head = NULL;
     insertAtTail(head, 1);
     insertAtTail(head, 2);
     insertAtTail(head, 3);
+    insertAtTail(head, 4);
+
     display(head);
     //insertAtHead(head,4);
     //display(head);
    // cout<<search(head,3)<<endl;
    //deletetion(head,1);
-   node* newhead=reverse(head);
+   int k=2;
+   node* newhead=reverseKnodes(head,k);
    //reverse(head);
    display(newhead);
 
