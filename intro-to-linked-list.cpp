@@ -137,6 +137,63 @@ node* reverseKnodes(node* &head,int k)
     return prevptr;
 
 }
+void makeCycle(node* &head,int pos)
+{
+    node* temp=head;
+    node* startNode;
+    int count =1;
+
+    while(temp->next!=NULL)
+    {
+        if(count==pos)
+        {
+            startNode=temp;
+        }
+        temp=temp->next;
+        count++;
+    }
+    temp->next=startNode;
+}
+
+bool detectCycle(node* &head)
+{
+    node* slowPtr=head;
+    node* fastPtr=head;
+
+    while(fastPtr!=NULL && fastPtr->next!=NULL)
+    {
+        slowPtr=slowPtr->next;
+        fastPtr=fastPtr->next->next;
+
+        if(fastPtr==slowPtr)
+        {
+            return true;
+        }
+        
+    }
+    return false;
+}
+
+void removeCycle(node* head)
+{
+    node* slowPtr=head;
+    node* fastPtr=head;
+
+    do
+    {
+        slowPtr=slowPtr->next;
+        fastPtr=fastPtr->next->next;
+
+    } while (slowPtr!=fastPtr);
+    
+    fastPtr=head;
+    while(slowPtr->next!=fastPtr->next)
+    {
+        slowPtr=slowPtr->next;
+        fastPtr=fastPtr->next;
+    }
+    slowPtr->next=NULL;
+}
 
 int main()
 {
@@ -145,15 +202,25 @@ int main()
     insertAtTail(head, 2);
     insertAtTail(head, 3);
     insertAtTail(head, 4);
+    insertAtTail(head, 5);
+    insertAtTail(head, 6);
+    insertAtTail(head, 7);
+
 
     display(head);
     //insertAtHead(head,4);
     //display(head);
    // cout<<search(head,3)<<endl;
    //deletetion(head,1);
-   int k=2;
-   node* newhead=reverseKnodes(head,k);
+   //int k=2;
+   //node* newhead=reverseKnodes(head,k);
    //reverse(head);
-   display(newhead);
+   //display(newhead);
+  makeCycle(head,3);
+   cout<<detectCycle(head)<<endl;
+
+   removeCycle(head);
+   display(head);
+   cout<<detectCycle(head)<<endl;
 
 }
