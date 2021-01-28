@@ -1,10 +1,4 @@
-void display(node* head)    
-{
-    node* temp = head;
-    while (temp != NULL)
-    {
-        cout << temp->data << "->";
-        temp = temp->next;
-    }
-    cout << "NULL" << endl;
-}
+for (int i = 0; i < n - 1; i + 3)
+    // {
+    //     sum -= a[i];
+    
