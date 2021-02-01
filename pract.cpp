@@ -1,62 +1,56 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-void pairs(int a, int b)
-{
+int main() {
+    int n,m;
+    cin>>n>>m;
+    
+    int p = 2*m;
+    int a[p];
+    for(int i=0;i<p;i++)
+    {
+        cin>>a[i];
+    }
+    // 1 2 2 3
+	// 1 2 1
+    // 1 2 1 3 2 3
+    int count=0;
+    int coun=0;
 
-	int count1 = 0;
-	int count2 = 0;
-	int count3 = 0;
-	int count4 = 0;
-	int a1[a];
-	int b1[b];
-	
-	int j=1;
-	for (int i = 0; i < a; i++)
+    int map[p]={0};
+    for(int i=0;i<p;i++)
+    {
+        map[a[i]]++;
+    }
+    for(int i=0;i<p;i++)
+    {
+        if(map[i]>=1)
+        {
+            coun++;
+        }
+    }
+    int low =0;
+	int high =1;
+	int check=2;
+	while(low<p && high<p)
 	{
-	     
-		a1[i] =j;
-		j++;
-	}
-	j=1;
-	for (int i = 0; i < b; i++)
-	{		 
-
-		b1[i] = j;
-		j++;
-	}
-	for (int i = 0; i < a; i++)
-	{
-		if(a1[i]%2==0)
+		if(a[low]!=a[check])
 		{
-			count1++;
-		}
-		else{
-			count3++;
-		}
-	}
-
-	for (int i = 0; i < b; i++)
-		{
-			if(b1[i]%2==0)
+			if(a[high]!=a[high+2])
 			{
-				count2++;
-			}else{
-				count4++;
+				count++;
 			}
 		}
+		if(a[low]==a[check])
+		{
+			check+=2;
+			count--;
 
-		cout<< count1 * count2 + count3 * count4<<endl;
-}
-
-int main()
-{
-	// your code goes here
-	int t;
-	cin>>t;
-	while(t--){
-	int a, b;
-	cin >> a >> b;
-	pairs(a, b);
-}
-	return 0;
+		}
+		low+=2;
+		high+=2;
+		check+=2;
+	}
+    
+	cout<<count+coun+1;
+    
 }
