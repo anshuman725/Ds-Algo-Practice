@@ -114,6 +114,20 @@ node* reverse(node* &head)
     return prevptr;
 
 }
+node* recursiveReverseApproach(node* &head)
+{
+
+    if(head==NULL||head->next==NULL)
+    {
+        return head;
+    }
+    node* newHead=recursiveReverseApproach(head->next);
+
+    head->next->next=head;
+    head->next=NULL;
+
+    return newHead;
+}
 
 node* reverseKnodes(node* &head,int k)
 {
