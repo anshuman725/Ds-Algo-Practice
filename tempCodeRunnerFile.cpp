@@ -1,1 +1,1 @@
-Diameter
+ // root->right=new Node(3);
